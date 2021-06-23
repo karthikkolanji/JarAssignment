@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/optionsFragment">
+
+    <fragment
+        android:id="@+id/optionsFragment"
+        android:name="com.example.jarassignment.OptionsFragment"
+        android:label="fragment_options"
+        tools:layout="@layout/fragment_options">
+        <action
+            android:id="@+id/go_to_shapes_fragment"
+            app:destination="@+id/shapeFragment" />
+        <action
+            android:id="@+id/go_to_photos_fragment"
+            app:destination="@+id/shapeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shapeFragment"
+        app:moduleName="shapes"
+        android:name="com.example.shapes.ui.ShapeFragment"
+        android:label="fragment_shape"
+        tools:layout="@layout/fragment_shape" />
+    <fragment
+        android:id="@+id/photosFragment"
+        app:moduleName="photos"
+        android:name="com.example.photos.PhotosFragment"
+        android:label="fragment_photos"
+        tools:layout="@layout/fragment_photos" />
+
+
+</navigation>
