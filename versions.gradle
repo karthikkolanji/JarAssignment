@@ -41,6 +41,7 @@ versions.rxjava2 = "2.1.3"
 versions.timber = "4.7.1"
 versions.transition = "1.3.0"
 versions.truth = "1.0.1"
+versions.hilt = "2.35"
 versions.work = "2.4.0"
 ext.versions = versions
 
@@ -158,6 +159,12 @@ navigation.safe_args_plugin = "androidx.navigation:navigation-safe-args-gradle-p
 navigation.dynamic_features = "androidx.navigation:navigation-dynamic-features-fragment:$versions.navigation"
 deps.navigation = navigation
 
+def hilt = [:]
+hilt.plugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
+hilt.compiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
+deps.hilt = hilt
+
 deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 
 deps.paging_runtime = "androidx.paging:paging-runtime:$versions.paging"
@@ -204,4 +211,5 @@ def addRepos(RepositoryHandler handler) {
     handler.jcenter()
     handler.maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
+
 ext.addRepos = this.&addRepos

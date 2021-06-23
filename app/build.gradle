@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -59,6 +60,10 @@ dependencies {
     api deps.navigation.ui
     api deps.navigation.ui_ktx
     api deps.navigation.dynamic_features
+
+
+    implementation deps.hilt.android
+    kapt deps.hilt.compiler
 
     testImplementation deps.junit
     testImplementation deps.arch_core.testing
