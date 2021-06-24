@@ -1,7 +1,8 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion build_versions.compile_sdk
@@ -14,9 +15,35 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            shrinkResources false
             minifyEnabled false
+            multiDexEnabled true
+        }
+        release {
+            debuggable false
+            shrinkResources true
+            minifyEnabled true
+            multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "flavor"
+    productFlavors {
+
+        prodFlavour {
+            dimension 'flavor'
+            applicationId "com.example.jarassignment"
+            buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/photos\""
+            resValue "string", "app_name", "JarAssigmnentProd"
+        }
+        stagFlavour {
+            dimension 'flavor'
+            applicationId "com.example.jarassignment.stag"
+            buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/photos\""
+            resValue "string", "app_name", "JarAssigmnentStag"
         }
     }
     compileOptions {
@@ -34,6 +61,9 @@ android {
 }
 
 dependencies {
+    implementation project(':app')
+
+
     implementation deps.app_compat
     implementation deps.material
     implementation deps.core_ktx
@@ -43,9 +73,22 @@ dependencies {
     implementation deps.lifecycle.livedata_ktx
     implementation deps.activity.activity_ktx
 
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.okhttp_logging_interceptor
+    implementation deps.retrofit.moshi_converter
+
+
+    implementation deps.moshi.runtime
+    kapt deps.moshi.code_gen
+
+    implementation deps.hilt.android
+    kapt deps.hilt.compiler
+
     implementation deps.kotlin.stdlib
 
     implementation deps.constraint_layout
+
+    implementation deps.timber
 
     implementation deps.navigation.fragment
     implementation deps.navigation.fragment_ktx

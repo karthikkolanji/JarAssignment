@@ -30,10 +30,11 @@ versions.mockito_all = "1.10.19"
 versions.mockito_android = "2.25.0"
 versions.mockwebserver = "3.8.1"
 versions.navigation = "2.3.5"
-versions.okhttp_logging_interceptor = "3.9.0"
+versions.okhttp_logging_interceptor = "4.9.1"
 versions.paging = "3.0.0-beta01"
 versions.recyclerview = "1.2.0-beta01"
 versions.retrofit = "2.9.0"
+versions.moshi = "1.12.0"
 versions.robolectric = "4.2"
 versions.room = "2.3.0-alpha04"
 versions.rx_android = "2.0.1"
@@ -165,7 +166,6 @@ hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
 hilt.compiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
 deps.hilt = hilt
 
-deps.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 
 deps.paging_runtime = "androidx.paging:paging-runtime:$versions.paging"
 
@@ -173,9 +173,16 @@ deps.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
 
 def retrofit = [:]
 retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
-retrofit.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 retrofit.mock = "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
+retrofit.moshi_converter = "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+retrofit.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 deps.retrofit = retrofit
+
+def moshi = [:]
+moshi.runtime = "com.squareup.moshi:moshi:$versions.moshi"
+moshi.code_gen = "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
+deps.moshi = moshi
+
 
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"
 

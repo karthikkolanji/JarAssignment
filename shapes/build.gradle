@@ -17,9 +17,33 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            shrinkResources false
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            multiDexEnabled true
+        }
+        release {
+            debuggable false
+            shrinkResources true
+            minifyEnabled true
+            multiDexEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "flavor"
+    productFlavors {
+
+        prodFlavour {
+            dimension 'flavor'
+            applicationId "com.example.jarassignment"
+            resValue "string", "app_name", "JarAssigmnentProd"
+        }
+        stagFlavour {
+            dimension 'flavor'
+            applicationId "com.example.jarassignment.stag"
+            resValue "string", "app_name", "JarAssigmnentStag"
         }
     }
     compileOptions {
