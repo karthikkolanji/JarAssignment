@@ -6,7 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 
@@ -17,11 +17,11 @@ class RetrofitModule {
     @Provides
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient,
-                        moshiConverterFactory: MoshiConverterFactory): Retrofit {
+                        gsonConverterFactory: GsonConverterFactory): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://api.unsplash.com/photos/?")
-            .addConverterFactory(moshiConverterFactory)
+            .baseUrl("https://api.unsplash.com")
+            .addConverterFactory(gsonConverterFactory)
             .build()
     }
 }

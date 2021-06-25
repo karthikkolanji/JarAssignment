@@ -44,6 +44,7 @@ versions.transition = "1.3.0"
 versions.truth = "1.0.1"
 versions.hilt = "2.35"
 versions.work = "2.4.0"
+versions.gson = "2.8.7"
 ext.versions = versions
 
 def build_versions = [:]
@@ -175,6 +176,7 @@ def retrofit = [:]
 retrofit.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit"
 retrofit.mock = "com.squareup.retrofit2:retrofit-mock:$versions.retrofit"
 retrofit.moshi_converter = "com.squareup.retrofit2:converter-moshi:$versions.retrofit"
+retrofit.gson_converter = "com.squareup.retrofit2:converter-gson:$versions.retrofit"
 retrofit.okhttp_logging_interceptor = "com.squareup.okhttp3:logging-interceptor:${versions.okhttp_logging_interceptor}"
 deps.retrofit = retrofit
 
@@ -182,6 +184,8 @@ def moshi = [:]
 moshi.runtime = "com.squareup.moshi:moshi:$versions.moshi"
 moshi.code_gen = "com.squareup.moshi:moshi-kotlin-codegen:$versions.moshi"
 deps.moshi = moshi
+
+deps.gson = "com.google.code.gson:gson:$versions.gson"
 
 
 deps.robolectric = "org.robolectric:robolectric:$versions.robolectric"

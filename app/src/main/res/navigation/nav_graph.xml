@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/photosFragment"
         app:moduleName="photos"
-        android:name="com.example.photos.PhotosFragment"
+        android:name="com.example.photos.ui.PhotosFragment"
         android:label="fragment_photos"
         tools:layout="@layout/fragment_photos" />
 

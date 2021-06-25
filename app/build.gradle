@@ -20,13 +20,11 @@ android {
         debug {
             applicationIdSuffix ".debug"
             debuggable true
-            shrinkResources false
             minifyEnabled false
             multiDexEnabled true
         }
         release {
             debuggable false
-            shrinkResources true
             minifyEnabled true
             multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -60,10 +58,12 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    dynamicFeatures = [':photos', ':shapes']
 }
 
 dependencies {
+    implementation project(":base")
+    implementation project(":shapes")
+    implementation project(":photos")
 
     implementation deps.app_compat
     implementation deps.material
@@ -87,10 +87,11 @@ dependencies {
 
     implementation deps.retrofit.runtime
     implementation deps.retrofit.okhttp_logging_interceptor
-    implementation deps.retrofit.moshi_converter
+    implementation deps.retrofit.gson_converter
 
-    implementation deps.moshi.runtime
-    kapt deps.moshi.code_gen
+
+    implementation deps.gson
+
 
 
     implementation deps.hilt.android

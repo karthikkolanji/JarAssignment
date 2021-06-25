@@ -1,4 +1,4 @@
-apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -9,7 +9,6 @@ android {
     buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        applicationId "com.example.photos"
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
 
@@ -18,16 +17,11 @@ android {
 
     buildTypes {
         debug {
-            applicationIdSuffix ".debug"
             debuggable true
-            shrinkResources false
-            minifyEnabled false
             multiDexEnabled true
         }
         release {
             debuggable false
-            shrinkResources true
-            minifyEnabled true
             multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -37,12 +31,10 @@ android {
 
         prodFlavour {
             dimension 'flavor'
-            applicationId "com.example.jarassignment"
             resValue "string", "app_name", "JarAssigmnentProd"
         }
         stagFlavour {
             dimension 'flavor'
-            applicationId "com.example.jarassignment.stag"
             resValue "string", "app_name", "JarAssigmnentStag"
         }
     }
@@ -53,9 +45,10 @@ android {
 }
 
 dependencies {
-    implementation project(":app")
     implementation project(":base")
 
+
+    implementation deps.annotations
     implementation deps.app_compat
     implementation deps.material
     implementation deps.core_ktx
@@ -65,8 +58,24 @@ dependencies {
     implementation deps.lifecycle.livedata_ktx
     implementation deps.activity.activity_ktx
 
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.okhttp_logging_interceptor
+    implementation deps.retrofit.gson_converter
+
+
+    implementation deps.gson
+
+
+    implementation deps.fragment.runtime
+    implementation deps.fragment.runtime_ktx
+
+
     implementation deps.hilt.android
     kapt deps.hilt.compiler
+
+    implementation deps.timber
+
+
 
     implementation deps.kotlin.stdlib
 

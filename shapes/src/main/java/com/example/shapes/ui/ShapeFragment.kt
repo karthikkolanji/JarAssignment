@@ -2,6 +2,7 @@ package com.example.shapes.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import com.example.base.extensions.viewLifecycleScoped
 import com.example.base.screen.BaseFragment
 import com.example.shapes.R
@@ -9,7 +10,7 @@ import com.example.shapes.databinding.FragmentShapeBinding
 import com.example.shapes.view.RandomCircles
 
 
-class ShapeFragment : BaseFragment(R.layout.fragment_shape) {
+class ShapeFragment : Fragment(R.layout.fragment_shape) {
 
     private val binding: FragmentShapeBinding by viewLifecycleScoped(
         FragmentShapeBinding::bind)
