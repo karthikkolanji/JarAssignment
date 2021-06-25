@@ -15,12 +15,11 @@
             app:destination="@+id/shapeFragment" />
         <action
             android:id="@+id/go_to_photos_fragment"
-            app:destination="@+id/shapeFragment" />
+            app:destination="@+id/photosFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/shapeFragment"
-        app:moduleName="shapes"
         android:name="com.example.shapes.ui.ShapeFragment"
         android:label="fragment_shape"
         tools:layout="@layout/fragment_shape" />

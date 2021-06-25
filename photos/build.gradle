@@ -75,6 +75,10 @@ dependencies {
 
     implementation deps.timber
 
+    implementation deps.cardview
+    implementation deps.constraint_layout
+
+
 
 
     implementation deps.kotlin.stdlib

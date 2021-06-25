@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myApp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:id="@+id/cv_root"
+    android:elevation="10dp"
+    myApp:cardCornerRadius="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:background="@color/colorWhite"
+        android:paddingBottom="8dp">
+
+        <ImageView
+            android:id="@+id/iv_poster"
+            android:layout_width="0dp"
+            android:layout_height="215dp"
+            android:scaleType="centerCrop"
+            myApp:layout_constraintDimensionRatio="w,16:9"
+            myApp:layout_constraintLeft_toLeftOf="parent"
+            myApp:layout_constraintRight_toRightOf="parent"
+            myApp:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_movie_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/tv_large"
+            myApp:layout_constraintLeft_toLeftOf="parent"
+            myApp:layout_constraintRight_toRightOf="parent"
+            myApp:layout_constraintTop_toBottomOf="@+id/iv_poster"
+            tools:text="bcjhdsvjdhsvdshvsjdvsdj" />
+
+
+        <TextView
+            android:id="@+id/tv_movie_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tv_small"
+            myApp:layout_constraintLeft_toLeftOf="@+id/tv_movie_name"
+            myApp:layout_constraintRight_toRightOf="@+id/tv_movie_name"
+            myApp:layout_constraintTop_toBottomOf="@+id/tv_movie_name"
+            tools:text="bcjhdsvjdhsvdshvsjdvsdj" />
+
+        <TextView
+            android:id="@+id/tv_movie_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tv_small"
+            myApp:layout_constraintLeft_toLeftOf="@+id/tv_movie_name"
+            myApp:layout_constraintTop_toBottomOf="@+id/tv_movie_desc"
+            tools:text="bcjhdsvjdhsvdshvsjdvsdj" />
+
+        <TextView
+            android:id="@+id/tv_movie_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/tv_small"
+            myApp:layout_constraintBottom_toBottomOf="@+id/tv_movie_date"
+            myApp:layout_constraintLeft_toRightOf="@+id/tv_movie_date"
+            myApp:layout_constraintTop_toTopOf="@+id/tv_movie_date"
+            tools:text="bcjhdsvjdhsvdshvsjdvsdj" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

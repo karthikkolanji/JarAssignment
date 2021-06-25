@@ -19,6 +19,7 @@ class OptionsFragment : Fragment(R.layout.fragment_options) {
             findNavController(this).navigate(OptionsFragmentDirections.goToShapesFragment())
         }
         binding.btFetchPhotos.setOnClickListener {
+            findNavController(this).navigate(OptionsFragmentDirections.goToPhotosFragment())
         }
     }
 

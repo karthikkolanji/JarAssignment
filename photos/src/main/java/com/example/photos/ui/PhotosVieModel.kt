@@ -14,14 +14,13 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PhotosVieModel @Inject constructor(
-    private val getPhotosUseCase: GetPhotosUseCase,
-    @IoDispatcher private val ioDispatcher: Dispatchers
+    private val getPhotosUseCase: GetPhotosUseCase
 ) : ViewModel() {
 
     fun getPhotos()  = liveData {
         emit(State.LoadingState)
         try {
-            emit(getPhotosUseCase.getPhotos())
+            emit(State.Success(getPhotosUseCase.getPhotos()))
         }
         catch (e:Exception){
             e.printStackTrace()

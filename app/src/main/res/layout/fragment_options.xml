@@ -30,7 +30,7 @@
         android:id="@+id/btFetchPhotos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/generate_shapes"
+        android:text="@string/fetch_photos"
         app:layout_constraintTop_toBottomOf="@+id/guideCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
