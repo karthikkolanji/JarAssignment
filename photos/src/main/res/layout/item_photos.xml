@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
     android:id="@+id/cv_root"
     android:elevation="10dp"
     myApp:cardCornerRadius="4dp">
@@ -30,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/tv_large"
+            android:textSize="@dimen/tv_medium"
             myApp:layout_constraintLeft_toLeftOf="parent"
             myApp:layout_constraintRight_toRightOf="parent"
             myApp:layout_constraintTop_toBottomOf="@+id/iv_poster"
