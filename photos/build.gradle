@@ -47,7 +47,6 @@ android {
 dependencies {
     implementation project(":base")
 
-
     implementation deps.annotations
     implementation deps.app_compat
     implementation deps.material
@@ -62,9 +61,7 @@ dependencies {
     implementation deps.retrofit.okhttp_logging_interceptor
     implementation deps.retrofit.gson_converter
 
-
     implementation deps.gson
-
 
     implementation deps.fragment.runtime
     implementation deps.fragment.runtime_ktx
@@ -81,9 +78,6 @@ dependencies {
     implementation deps.glide.runtime
     kapt deps.glide.compiler
 
-
-
-
     implementation deps.kotlin.stdlib
 
     implementation deps.constraint_layout
@@ -93,15 +87,4 @@ dependencies {
     implementation deps.navigation.ui
     implementation deps.navigation.ui_ktx
 
-    testImplementation deps.junit
-    testImplementation deps.arch_core.testing
-
-    androidTestImplementation deps.atsl.runner
-    androidTestImplementation deps.atsl.rules
-    androidTestImplementation deps.atsl.ext_junit
-    androidTestImplementation deps.espresso.core
-    androidTestImplementation deps.espresso.contrib
-    androidTestImplementation deps.arch_core.testing
-
-    testImplementation deps.coroutines.test
 }

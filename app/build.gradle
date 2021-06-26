@@ -92,20 +92,7 @@ dependencies {
 
     implementation deps.gson
 
-
-
     implementation deps.hilt.android
     kapt deps.hilt.compiler
 
-    testImplementation deps.junit
-    testImplementation deps.arch_core.testing
-
-    androidTestImplementation deps.atsl.runner
-    androidTestImplementation deps.atsl.rules
-    androidTestImplementation deps.atsl.ext_junit
-    androidTestImplementation deps.espresso.core
-    androidTestImplementation deps.espresso.contrib
-    androidTestImplementation deps.arch_core.testing
-
-    testImplementation deps.coroutines.test
 }
