@@ -4,4 +4,5 @@
     <string name="fetch_photos">Fetch Photos</string>
     <string name="title_photos">UnPlashPhotos</string>
     <string name="title_shapes">Shapes</string>
+    <string name="options">Select an option</string>
 </resources>

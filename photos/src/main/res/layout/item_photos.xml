@@ -20,7 +20,6 @@
             android:layout_width="0dp"
             android:layout_height="215dp"
             android:scaleType="centerCrop"
-            myApp:layout_constraintDimensionRatio="w,16:9"
             myApp:layout_constraintLeft_toLeftOf="parent"
             myApp:layout_constraintRight_toRightOf="parent"
             myApp:layout_constraintTop_toTopOf="parent" />

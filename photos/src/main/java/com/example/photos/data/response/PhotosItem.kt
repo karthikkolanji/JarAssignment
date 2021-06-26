@@ -4,13 +4,13 @@ import androidx.annotation.Keep
 
 @Keep
 data class PhotosItem(
-    val alt_description: String,
+    val alt_description: String="N/A",
     val blur_hash: String,
     val categories: List<Any>,
     val color: String,
     val created_at: String,
     val current_user_collections: List<Any>,
-    val description: String? = null,
+    val description: String="N/A",
     val height: Int,
     val id: String,
     val liked_by_user: Boolean,

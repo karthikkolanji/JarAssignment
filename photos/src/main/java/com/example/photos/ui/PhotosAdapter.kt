@@ -7,9 +7,11 @@ import android.view.animation.AnimationUtils
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.base.di.GlideApp
 import com.example.photos.R
 import com.example.photos.data.response.PhotosItem
 import com.example.photos.databinding.ItemPhotosBinding
+import dagger.hilt.android.qualifiers.ActivityContext
 import javax.inject.Inject
 
 class PhotosAdapter @Inject constructor() :
@@ -44,8 +46,33 @@ class PhotosAdapter @Inject constructor() :
         @SuppressLint("CheckResult")
         fun bindViews(position: Int) {
             val photos = resultsItem[position]
-            binding.tvMovieDesc.text = photos.alt_description
-            Glide.with(binding.ivPoster.context).load(photos.urls.full).into(binding.ivPoster)
+            binding.apply {
+
+                tvMovieName.text =
+                    String.format(
+                        binding.tvMovieName.context.getString(R.string.uploaded_user_name),
+                        photos.user.name
+                    )
+
+                tvMovieDesc.text =
+                    String.format(
+                        binding.tvMovieDesc.context.getString(R.string.description),
+                        photos.alt_description
+                    )
+
+                tvMovieDate.text =
+                    String.format(
+                        binding.tvMovieDate.context.getString(
+                            R.string.total_likes
+                        ), photos.likes
+                    )
+            }
+            GlideApp.with(binding.ivPoster.context)
+                .load(photos.urls.full)
+                .placeholder(R.drawable.ic_photo)
+                .error(R.drawable.ic_error)
+                .into(binding.ivPoster)
+
             enterAnimation(binding.cvRoot, position)
 
         }

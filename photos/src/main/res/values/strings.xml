@@ -1,0 +1,5 @@
+<resources>
+    <string name="uploaded_user_name">Uploaded by : %1$s</string>
+    <string name="description">Description : %1$s</string>
+    <string name="total_likes">Total likes : %1$s</string>
+</resources>

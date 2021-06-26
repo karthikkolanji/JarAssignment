@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myApp="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/rootError"
+    android:visibility="gone"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/ivError"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_error"
+        myApp:layout_constraintLeft_toLeftOf="parent"
+        myApp:layout_constraintRight_toRightOf="parent"
+        myApp:layout_constraintTop_toTopOf="parent"
+        myApp:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/tv_large"
+        myApp:layout_constraintLeft_toLeftOf="parent"
+        myApp:layout_constraintRight_toRightOf="parent"
+        myApp:layout_constraintTop_toBottomOf="@+id/ivError"
+        tools:text="Error Message"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ data class User(
     val for_hire: Boolean,
     val id: String,
     val instagram_username: Any,
-    val last_name: String,
+    val last_name: String="",
     val links: LinksXX,
     val location: String? = null,
     val name: String,

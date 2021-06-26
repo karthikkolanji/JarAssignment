@@ -15,8 +15,6 @@ import com.example.photos.data.response.Photos
 import com.example.photos.databinding.FragmentPhotosBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import timber.log.Timber
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class PhotosFragment : Fragment(R.layout.fragment_photos) {
@@ -36,15 +34,13 @@ class PhotosFragment : Fragment(R.layout.fragment_photos) {
                 when (it) {
                     is State.LoadingState -> {
                         showLoading()
-                        Timber.d("PhotoState LoadingState")
                     }
                     is State.Success<*> -> {
                         showData(it.data as Photos)
-                        Timber.d("PhotoState Success ${it.data}")
 
                     }
                     is State.ErrorState -> {
-                        Timber.d("PhotoState ErrorState ${it.exception}")
+                        showError(it.exception.message)
                     }
                 }
 
@@ -56,6 +52,16 @@ class PhotosFragment : Fragment(R.layout.fragment_photos) {
         binding.apply {
             viewLoading.rootLoading.visible()
             rvPhotos.gone()
+            viewError.rootError.gone()
+        }
+    }
+
+    private fun showError(message: String?) {
+        binding.apply {
+            viewLoading.rootLoading.gone()
+            rvPhotos.gone()
+            viewError.rootError.visible()
+            viewError.tvErrorMessage.text=message
         }
     }
 
@@ -63,7 +69,8 @@ class PhotosFragment : Fragment(R.layout.fragment_photos) {
         viewModel.photosAdapter.setPhotos(photos)
         binding.apply {
             viewLoading.rootLoading.gone()
-            rvPhotos.adapter=viewModel.photosAdapter
+            viewError.rootError.gone()
+            rvPhotos.adapter = viewModel.photosAdapter
             rvPhotos.visible()
         }
 

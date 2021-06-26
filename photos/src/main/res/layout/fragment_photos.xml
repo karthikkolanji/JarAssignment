@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorGreyLight"
-    android:layout_marginBottom="8dp">
+    android:background="@color/colorGreyLight">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPhotos"
@@ -20,7 +19,10 @@
 
     <include
         android:id="@+id/viewLoading"
-        layout="@layout/item_loading" />
+        layout="@layout/inlude_loading" />
+    <include
+        android:id="@+id/viewError"
+        layout="@layout/include_error"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
