@@ -5,6 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
-    @GET("/photos/?")
+    @GET("photos/?")
     suspend fun getPhotos(@Query("client_id") clientId: String): Photos
 }

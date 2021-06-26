@@ -32,13 +32,11 @@ android {
 
         prodFlavour {
             dimension 'flavor'
-            buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/photos\""
-            resValue "string", "app_name", "JarAssigmnentProd"
+            buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/\""
         }
         stagFlavour {
             dimension 'flavor'
-            buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/photos\""
-            resValue "string", "app_name", "JarAssigmnentStag"
+            buildConfigField "String", "BASE_URL", "\"https://api.unsplash.com/\""
         }
     }
     compileOptions {

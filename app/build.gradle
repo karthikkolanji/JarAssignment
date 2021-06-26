@@ -21,12 +21,10 @@ android {
             applicationIdSuffix ".debug"
             debuggable true
             minifyEnabled false
-            multiDexEnabled true
         }
         release {
             debuggable false
             minifyEnabled true
-            multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -36,13 +34,11 @@ android {
         prodFlavour {
             dimension 'flavor'
             applicationId "com.example.jarassignment"
-            buildConfigField("String", "BASE_URL", "\"https://api.unsplash.com/photos\"")
-            resValue "string", "app_name", "JarAssigmnentProd"
+            resValue "string", "app_name", "JarAssigmnent"
         }
         stagFlavour {
             dimension 'flavor'
             applicationId "com.example.jarassignment.stag"
-            buildConfigField("String", "BASE_URL", "\"https://api.unsplash.com/photos\"")
             resValue "string", "app_name", "JarAssigmnentStag"
         }
     }
