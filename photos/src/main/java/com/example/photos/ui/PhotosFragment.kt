@@ -9,19 +9,19 @@ import androidx.lifecycle.lifecycleScope
 import com.example.base.extensions.gone
 import com.example.base.extensions.viewLifecycleScoped
 import com.example.base.extensions.visible
-import com.example.base.extensions.invisible
 import com.example.base.utils.State
 import com.example.photos.R
+import com.example.photos.data.response.Photos
 import com.example.photos.databinding.FragmentPhotosBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class PhotosFragment : Fragment(R.layout.fragment_photos) {
 
     private val binding: FragmentPhotosBinding by viewLifecycleScoped(FragmentPhotosBinding::bind)
-
     private val viewModel: PhotosVieModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class PhotosFragment : Fragment(R.layout.fragment_photos) {
                         Timber.d("PhotoState LoadingState")
                     }
                     is State.Success<*> -> {
-                        showData()
+                        showData(it.data as Photos)
                         Timber.d("PhotoState Success ${it.data}")
 
                     }
@@ -59,10 +59,14 @@ class PhotosFragment : Fragment(R.layout.fragment_photos) {
         }
     }
 
-    private fun showData() {
+    private fun showData(photos: Photos) {
+        viewModel.photosAdapter.setPhotos(photos)
         binding.apply {
             viewLoading.rootLoading.gone()
+            rvPhotos.adapter=viewModel.photosAdapter
             rvPhotos.visible()
         }
+
+
     }
 }

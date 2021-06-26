@@ -39,50 +39,17 @@ fun View.getString(@StringRes stringResId: Int): String = resources.getString(st
  * Android view related utils
  ****************************************************************/
 
-// show snackbar with any view
-fun View.snackbar(text: CharSequence, duration: Int): Snackbar =
+fun View.snackbar(@StringRes stringId: Int, duration: Int): Snackbar =
     Snackbar.make(
         this,
-        Html.fromHtml("<font color=\"#ffffff\">$text</font>"),
+        HtmlCompat.fromHtml(
+            "<font color=\"#ffffff\">${context.getString(stringId)}</font>",
+            HtmlCompat.FROM_HTML_MODE_LEGACY
+        ),
         duration
+
     )
 
-fun Group.setGroupOnClickListener(listener: (view: View) -> Unit) {
-    referencedIds.forEach { id ->
-        rootView.findViewById<View>(id).setOnClickListener(listener)
-    }
-}
-
-// show Snackbar with any view
-fun View.topSnackbar(text: CharSequence, duration: Int): Snackbar {
-    val snackbar = Snackbar.make(this, Html.fromHtml("<font color=\"#000000\">$text</font>"), duration)
-    val snackbarLayout = snackbar.view
-    val lp = LinearLayout.LayoutParams(
-        LinearLayout.LayoutParams.MATCH_PARENT,
-        LinearLayout.LayoutParams.WRAP_CONTENT
-    )
-    lp.setMargins(20, 120, 20, 0)
-    snackbarLayout.layoutParams = lp
-    snackbarLayout.setBackgroundColor(Color.WHITE)
-    return snackbar
-}
-
-fun SpannableStringBuilder.withClickableSpan(
-    start: Int,
-    end: Int,
-    onClickListener: () -> Unit
-): SpannableStringBuilder {
-    val clickableSpan = object : ClickableSpan() {
-        override fun onClick(widget: View) = onClickListener.invoke()
-    }
-    setSpan(
-        clickableSpan,
-        start,
-        end,
-        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-    )
-    return this
-}
 
 fun View.setBooleanVisibility(value: Boolean) {
     if (value) {
@@ -113,13 +80,6 @@ fun AppCompatEditText.afterTextChange(afterTextChange: (String) -> Unit) {
 
 fun View.isVisible() = visibility == View.VISIBLE
 
-fun ImageView.greyOut() {
-    val matrix = ColorMatrix()
-    matrix.setSaturation(0F)
-    val cf = ColorMatrixColorFilter(matrix)
-    this.colorFilter = cf
-    this.imageAlpha = 128
-}
 
 fun TextView.setHtmlText(@StringRes stringId: Int) {
     this.text = HtmlCompat.fromHtml(context.getString(stringId), HtmlCompat.FROM_HTML_MODE_LEGACY)

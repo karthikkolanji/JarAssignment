@@ -11,6 +11,7 @@
         android:id="@+id/rvPhotos"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        myApp:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         myApp:layout_constraintBottom_toBottomOf="parent"
         myApp:layout_constraintLeft_toLeftOf="parent"
         myApp:layout_constraintRight_toRightOf="parent"

@@ -78,6 +78,9 @@ dependencies {
     implementation deps.cardview
     implementation deps.constraint_layout
 
+    implementation deps.glide.runtime
+    kapt deps.glide.compiler
+
 
 
 
