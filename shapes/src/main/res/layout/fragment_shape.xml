@@ -19,7 +19,7 @@
        android:id="@+id/btAddCircle"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="@string/generate_shapes"
+       android:text="Add Circle"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toStartOf="@+id/btUndo"
        app:layout_constraintStart_toStartOf="parent" />
@@ -28,7 +28,16 @@
        android:id="@+id/btUndo"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="@string/generate_shapes"
+       android:text="undo"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/btAddRectangle"
+       app:layout_constraintStart_toEndOf="@+id/btAddCircle" />
+
+   <Button
+       android:id="@+id/btAddRectangle"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Add Rectngle"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toEndOf="@+id/btUndo" />
